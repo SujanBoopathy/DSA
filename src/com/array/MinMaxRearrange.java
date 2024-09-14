@@ -3,6 +3,7 @@ package com.array;
 public class MinMaxRearrange {
 
     public static void main(String args[]){
+        //Input array
         int[] arr= {1,3,4,5,6,7,78,90,123,455,890,1111,2333,8990};
 
         int start = 0, end = arr.length -1;
@@ -16,7 +17,7 @@ public class MinMaxRearrange {
             }
             flag = !flag;
         }
-
+        // output
         for(int i=0;i<arr.length;i++){
             System.out.print(tempArray[i]+" ");
         }
