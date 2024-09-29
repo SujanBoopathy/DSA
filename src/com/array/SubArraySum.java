@@ -3,6 +3,48 @@ package com.array;
 import java.util.ArrayList;
 
 public class SubArraySum {
+    // Function to find a continuous sub-array which adds up to a given number.
+    public static ArrayList<Integer> subarraySum(int[] arr, int n, long sum) {
+        int last = 0;
+        int start = 0;
+        long currsum = 0;
+        boolean flag = false;
+        ArrayList<Integer> res = new ArrayList<>();
+
+        // Iterate over the array
+        for (int i = 0; i < n; i++) {
+            // Store sum up to current element
+            currsum += arr[i];
+
+            // Check if current sum is greater than or equal to given number
+            if (currsum >= sum) {
+                last = i;
+
+                // Start from starting index till current index
+                while (sum < currsum && start < last) {
+                    // Subtract the element from left
+                    currsum -= arr[start];
+                    ++start;
+                }
+
+                // If current sum becomes equal to given number
+                if (currsum == sum) {
+                    res.add(start + 1);
+                    res.add(last + 1);
+                    flag = true;
+                    break;
+                }
+            }
+        }
+
+        // If no subarray is found, store -1 in result
+        if (!flag)
+            res.add(-1);
+
+        // Return the result
+        return res;
+    }
+
     private static ArrayList<Integer> arraySum(int[] arr, int n,long sum)
     {
 
@@ -52,7 +94,13 @@ public class SubArraySum {
         long sum = 23;
         ArrayList<Integer> result
                 = arraySum(arr, n, sum);
+        
         for (int i : result)
+            System.out.print(i + " ");
+        }
+
+        result=subarraySum(arr,n,sum);
+         for (int i : result)
             System.out.print(i + " ");
         }
     }
