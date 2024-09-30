@@ -97,12 +97,17 @@ public class SubArraySum {
         
         for (int i : result)
             System.out.print(i + " ");
-        }
+
 
         result=subarraySum(arr,n,sum);
-         for (int i : result)
+        for (int i : result)
             System.out.print(i + " ");
+
+
         }
+
+
     }
+
 
 
