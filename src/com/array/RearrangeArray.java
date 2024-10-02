@@ -2,7 +2,17 @@ package com.array;
 
 public class RearrangeArray {
     private static void fixArray(int arr[],int n){
-
+        Set<Integer> set = new HashSet<>();
+        for(Integer i : arr){
+            set.add(i);
+        }
+        for(int i=0;i<arr.length;i++){
+            if(set.contains(i)){
+                arr[i]=i;
+            } else{
+                arr[i]=-1;
+            }
+        }        
     }
 
 
@@ -11,5 +21,9 @@ public class RearrangeArray {
         n = ar.length;
         // Function Call
         fixArray(ar, n);
+
+        for(Integer i : ar){
+            System.out.print(" "+i);
+        }
     }
 }
