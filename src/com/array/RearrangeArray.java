@@ -1,4 +1,5 @@
 package com.array;
+import java.util.*;
 
 public class RearrangeArray {
     private static void fixArray(int arr[],int n){
